@@ -1,3 +1,5 @@
+import numpy as np
+
 class NumberGuess:
     def __init__(self,high=100):
         ''' Initialize the function and generates a random number based on the
