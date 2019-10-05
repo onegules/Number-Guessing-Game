@@ -1,3 +1,5 @@
+import numguess.NumberGuess
+
 print("In this game, the program will choose a number and your job is to guess")
 print("the number. You have 5 guesses and at each guess the computer will tell")
 print("you if the number you guesed is above or below the number that was picked.")
