@@ -6,4 +6,14 @@ print("you if the number you guesed is above or below the number that was picked
 print("The number picked will be between 1 and 100. Would you like to raise the")
 print("highest possible value?")
 
-for i in range(5):
+guesses = 5
+numguess = NumberGuess()
+for i in range(guesses):
+    print("Please take a guess: ")
+    guess = input()
+    if(guess.result() == True):
+        print("Congratulations! You guessed right!")
+    else:
+        continue
+
+exit()
