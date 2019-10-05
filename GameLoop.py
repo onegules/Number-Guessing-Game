@@ -11,7 +11,7 @@ numguess = NumberGuess()
 for i in range(guesses):
     print("Please take a guess: ")
     guess = input()
-    if(guess.result() == True):
+    if(numguess.result(int(guess)) == True):
         print("Congratulations! You guessed right!")
     else:
         continue
