@@ -13,6 +13,7 @@ for i in range(guesses):
     guess = input()
     if(numguess.result(int(guess)) == True):
         print("Congratulations! You guessed right!")
+        break
     else:
         continue
 
