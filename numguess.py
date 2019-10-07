@@ -11,8 +11,8 @@ class NumberGuess:
         '''Calculates the result of a guess'''
 
         if guess < self.number:
-            return "Too low, try again."
+            return "Too low."
         elif guess > self.number:
-            return "Too high, try again."
+            return "Too high."
         else:
             return True
