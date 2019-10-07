@@ -14,7 +14,15 @@ for i in range(guesses):
     if(numguess.result(int(guess)) == True):
         print("Congratulations! You guessed right!")
         break
+
+    elif(i == 4):
+        result = numguess.result(int(guess))
+        print(result)
+        print("Better luck next time!")
+
     else:
+        result = numguess.result(int(guess))
+        print(result)
         continue
 
 exit()
