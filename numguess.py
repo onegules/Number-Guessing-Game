@@ -5,14 +5,14 @@ class NumberGuess:
         ''' Initialize the function and generates a random number based on the
         optional argument'''
 
-        number = np.random.randint(1,high=high)
+        self.number = np.random.randint(1,high=high)
 
     def result(self,guess):
         '''Calculates the result of a guess'''
 
-        if guess < number:
+        if guess < self.number:
             return "Too low, try again."
-        elif guess > number:
+        elif guess > self.number:
             return "Too high, try again."
         else:
             return True
