@@ -12,7 +12,7 @@ if(answer == 'y'):
     print("What would you like the new highest value to be?")
     try:
         new_high = int(input())
-        numguess = NumberGuess(high=new_high)
+        numguess = NumberGuess(high=new_high+1)
     except ValueError:
         print("\nSeems you put in something I didn't understand. So I'll just initialize as the default\n")
         numguess = NumberGuess()
@@ -24,6 +24,8 @@ elif(answer == 'n'):
 else:
     print("\nSince I'm not sure what you typed, I will initialize using the default settings.\n")
     numguess = NumberGuess()
+
+print("Would you also like to adjust the number of guesses? [y/n]")
 
 guesses = 5
 

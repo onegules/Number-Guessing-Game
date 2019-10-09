@@ -1,7 +1,7 @@
 import numpy as np
 
 class NumberGuess:
-    def __init__(self,high=100):
+    def __init__(self,high=101):
         ''' Initialize the function and generates a random number based on the
         optional argument'''
 
