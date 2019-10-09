@@ -49,7 +49,7 @@ else:
 
 
 for i in range(guesses):
-    print("Please take a guess: ")
+    print("Please take a guess ({} left): ".format(guesses-i))
     guess = input()
     if(numguess.result(int(guess)) == True):
         print("Congratulations! You guessed right!")
