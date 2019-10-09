@@ -51,6 +51,14 @@ else:
 for i in range(guesses):
     print("Please take a guess ({} left): ".format(guesses-i))
     guess = input()
+    while True:
+        try:
+            int(guess)
+        except ValueError:
+            print("Unfortunately that's not a number, please try again: ")
+            guess = input()
+            continue
+        break
     if(numguess.result(int(guess)) == True):
         print("Congratulations! You guessed right!")
         break
