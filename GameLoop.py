@@ -13,21 +13,40 @@ if(answer == 'y'):
     try:
         new_high = int(input())
         numguess = NumberGuess(high=new_high+1)
+        print("\n")
     except ValueError:
         print("\nSeems you put in something I didn't understand. So I'll just initialize as the default\n")
         numguess = NumberGuess()
 
 elif(answer == 'n'):
-    print("Alright then, let's start the game!")
+    print("Alright then, let's move on. \n")
     numguess = NumberGuess()
 
 else:
     print("\nSince I'm not sure what you typed, I will initialize using the default settings.\n")
     numguess = NumberGuess()
 
-print("Would you also like to adjust the number of guesses? [y/n]")
+print("Would you like to adjust the number of guesses? [y/n]")
+answer = input()
 
-guesses = 5
+if(answer == 'y'):
+    print("Please input the number of guesses for this session.")
+    try:
+        new_guesses = int(input())
+        guesses = new_guesses
+        print("\n")
+    except ValueError:
+        print("\nSeems you put in something I didn't understand. So I'll just initialize as the default\n")
+        guesses = 5
+
+elif(answer == 'n'):
+    print("Alright then, let's move on the game!\n")
+    guesses = 5
+
+else:
+    print("\nSince I'm not sure what you typed, I will initialize using the default settings.\n")
+    guesses = 5
+
 
 for i in range(guesses):
     print("Please take a guess: ")
@@ -36,7 +55,7 @@ for i in range(guesses):
         print("Congratulations! You guessed right!")
         break
 
-    elif(i == 4):
+    elif(i == guesses-1):
         result = numguess.result(int(guess))
         print(result)
         print("Better luck next time!")
