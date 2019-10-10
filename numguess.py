@@ -6,6 +6,7 @@ class NumberGuess:
         optional argument'''
 
         self.number = np.random.randint(1,high=high)
+        self.high = high
 
     def result(self,guess):
         '''Calculates the result of a guess'''

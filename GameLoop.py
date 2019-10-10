@@ -68,6 +68,9 @@ for i in range(guesses):
         print(result)
         print("Better luck next time!")
 
+    elif(int(guess) > numguess.high or int(guess) <= 0):
+        print("That's not a valid guess. Remember you're guessing between 1 and {}".format(numguess.high -1))
+
     else:
         result = numguess.result(int(guess))
         print(result)
