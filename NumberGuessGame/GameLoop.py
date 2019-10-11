@@ -1,79 +1,55 @@
 from NumberGuess import NumberGuess
 
-print("In this game, the program will choose a number and your job is to guess")
-print("the number. You have 5 guesses and at each guess the computer will tell")
-print("you if the number you guesed is above or below the number that was picked.")
-print("The number picked will be between 1 and 100. Would you like to raise the")
-print("highest possible value? [y/n]")
+class Game(NumberGuess):
+    def __init__(self,guesses = 5, high=100):
+        print("Type object_name.howto() for instructions on how to play")
+        self.guesses = guesses
+        self.high = high
 
-answer = input()
+    def howto(self):
+        print("\nIn this game, the program will choose a number and your job is to guess")
+        print("the number. You have 5 guesses and at each guess the computer will tell")
+        print("you if the number you guesed is above or below the number that was picked.")
+        print("The number picked will be between 1 and 100. \n")
 
-if(answer == 'y'):
-    print("What would you like the new highest value to be?")
-    try:
-        new_high = int(input())
-        numguess = NumberGuess(high=new_high+1)
-        print("\n")
-    except ValueError:
-        print("\nSeems you put in something I didn't understand. So I'll just initialize as the default\n")
-        numguess = NumberGuess()
+        print("To change any of the default values to customize your game type")
+        print("object_name.changeguess(your_guess) and changehigh(new_high)")
+        print("to change the number of guesses in a game or the highest possible")
+        print("value the computer will pick (still choosing from 1 to new_high).\n")
 
-elif(answer == 'n'):
-    print("Alright then, let's move on. \n")
-    numguess = NumberGuess()
+        print("To start the game run object_name.game_start(). Have fun!\n")
 
-else:
-    print("\nSince I'm not sure what you typed, I will initialize using the default settings.\n")
-    numguess = NumberGuess()
+    def changeguess(self,new_guess):
+        self.guesses = new_guess
 
-print("Would you like to adjust the number of guesses? [y/n]")
-answer = input()
+    def changehigh(self,new_high):
+        self.high = new_high
 
-if(answer == 'y'):
-    print("Please input the number of guesses for this session.")
-    try:
-        new_guesses = int(input())
-        guesses = new_guesses
-        print("\n")
-    except ValueError:
-        print("\nSeems you put in something I didn't understand. So I'll just initialize as the default\n")
-        guesses = 5
-
-elif(answer == 'n'):
-    print("Alright then, let's move on the game!\n")
-    guesses = 5
-
-else:
-    print("\nSince I'm not sure what you typed, I will initialize using the default settings.\n")
-    guesses = 5
-
-
-for i in range(guesses):
-    print("Please take a guess ({} left): ".format(guesses-i))
-    guess = input()
-    while True:
-        try:
-            int(guess)
-        except ValueError:
-            print("Unfortunately that's not a number, please try again: ")
+    def game_start(self):
+        for i in range(guesses):
+            print("Please take a guess ({} left): ".format(guesses-i))
             guess = input()
-            continue
-        break
-    if(numguess.result(int(guess)) == True):
-        print("Congratulations! You guessed right!")
-        break
+            while True:
+                try:
+                    int(guess)
+                except ValueError:
+                    print("Unfortunately that's not a number, please try again: ")
+                    guess = input()
+                    continue
+                break
+            if(numguess.result(int(guess)) == True):
+                print("Congratulations! You guessed right!")
+                break
 
-    elif(i == guesses-1):
-        result = numguess.result(int(guess))
-        print(result)
-        print("Better luck next time!")
+            elif(i == guesses-1):
+                result = numguess.result(int(guess))
+                print(result)
+                print("Better luck next time!")
 
-    elif(int(guess) > numguess.high or int(guess) <= 0):
-        print("That's not a valid guess. Remember you're guessing between 1 and {}".format(numguess.high -1))
+            elif(int(guess) > numguess.high or int(guess) <= 0):
+                print("That's not a valid guess. Remember you're guessing between 1 and {}".format(numguess.high -1))
 
-    else:
-        result = numguess.result(int(guess))
-        print(result)
-        continue
-
-exit()
+            else:
+                result = numguess.result(int(guess))
+                print(result)
+                continue
