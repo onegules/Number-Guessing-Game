@@ -1,4 +1,4 @@
-from numguess import NumberGuess
+from NumberGuess import NumberGuess
 
 print("In this game, the program will choose a number and your job is to guess")
 print("the number. You have 5 guesses and at each guess the computer will tell")
